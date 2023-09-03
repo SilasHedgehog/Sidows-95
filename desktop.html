@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sidows 95</title>
+     <link rel="shortcut icon" href="/logo.png">
+    <meta property="og:title" content="SIDOWS 95">
+    <meta property="og:image" content="sidows-icon.png">
+    <meta property="og:description" content="Scratchsoft Brings you The New, Sidows 95!">
+    <meta property="og:site_name" content="Scratchsoft Sidows 95">
+  <link rel="icon" href="sidows-icon.png" type="image/x-icon">
+<link rel="stylesheet" href="https://unpkg.com/xp.css">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .window {
+      position: absolute;
+      z-index: 1;
+      background-color: #fff;
+      border: 1px solid #000;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      width: 300px;
+    }
+
+    .window--maximized {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .window-content {
+      padding: 10px;
+      height: calc(100% - 30px); 
+    }
+
+    .window-footer {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
+    }
+
+    .window-resize-handle {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 20px;
+      height: 20px;
+      cursor: nwse-resize;
+    }
+
+    .window-content iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+      .red-alert {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border: 1px solid red;
+    border-radius: 0px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+      #contextMenu {
+      position: fixed;
+      display: none;
+      background-color: #818181;
+      border: 1px solid #000;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      z-index: 2;
+    }
+
+    #contextMenu div {
+      padding: 5px 10px;
+      cursor: pointer;
+      border-bottom: 1px solid #ccc;
+    }
+
+    #contextMenu div:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+<div class="p-1 fixed bottom-0 left-0 w-full bg-gray-300 flex taskbar">
+<!--
+   <div class="red-alert">
+    Hello, Beta Tester!
+   </div>
+  <p></p> 
+-->
+      <button class="p-2" onclick="openWindow('apps/wip.html', 'About')">Start</button> <button onclick="update()">Sidows Update</button>
+      <hr>
+                <img src="/file.png" class="p-2" onclick="openWindow('/', 'test')" width="40px" />
+        <p>vm</p>
+                        <img src="https://u.cubeupload.com/SilasTheHedgehog/Untitled406202308312.png" class="p-2" onclick="openWindow('apps/internet.html', 'Web Traveler')" width="40px" />
+        <p>Web Traveler</p>
+                        <img src="https://u.cubeupload.com/SilasTheHedgehog/Untitled404202308312.png" class="p-2" onclick="openWindow('https://kamtape.com', 'KamTape')" width="40px" />
+        <p>KamTape</p>
+        
+        <img src="https://u.cubeupload.com/SilasTheHedgehog/Untitled405202308312.png" class="p-2" onclick="openWindow('https://godztube.yooco.org', 'GodzTube')" width="40px" />
+        <p>GodzTube</p>
+        <img src="https://u.cubeupload.com/SilasTheHedgehog/Screenshot2023090110.png" class="p-2" onclick="openWindow('https://silastube.yooco.org', 'SilasTube (Classic)')" width="40px" />
+        <p>SilasTube 
+          (Classsic)</p>
+           <img src="https://u.cubeupload.com/SilasTheHedgehog/paintxpforwindows7ic.png" class="p-2" onclick="openWindow('https://jspaint.app/', 'Paint')" width="40px" />
+        <p>Paint</p>
+                   <img src="https://u.cubeupload.com/SilasTheHedgehog/download.png" class="p-2" onclick="openWindow('https://www.stef.be/bassoontracker/', 'Bassoon Tracker')" width="40px" />
+        <p>Bassoon Tracker</p>                   <img src="https://u.cubeupload.com/SilasTheHedgehog/Screenshot2023090114.png" class="p-2" onclick="openWindow('https://bitview.net', 'BitView')" width="40px" />
+        <p>BitView</p>
+<img src="https://u.cubeupload.com/SilasTheHedgehog/gameing.png" class="p-2" onclick="openWindow('https://serve01.windows96.net/gameing/versions/v012_wgl/dl/', 'Gameing -- Ver: v012 By Windows 96')" width="40px" />
+        <p>Gameing</p>
+ <p>User agent: <span id="user-agent"></span></p>
+  <div id="contextMenu"></div>
+  </div>
+    <script>
+    function openWindow(url, title) {
+      const windowElement = document.createElement('div');
+      windowElement.classList.add('window');
+      windowElement.style.top = '50px';
+      windowElement.style.left = '50px';
+      document.body.appendChild(windowElement);
+
+      const titleBar = document.createElement('div');
+      titleBar.classList.add('title-bar');
+      windowElement.appendChild(titleBar);
+
+      const titleText = document.createElement('div');
+      titleText.classList.add('title-bar-text');
+      titleText.textContent = title;
+      titleBar.appendChild(titleText);
+
+      const titleBarControls = document.createElement('div');
+      titleBarControls.classList.add('title-bar-controls');
+      titleBar.appendChild(titleBarControls);
+
+      const minimizeButton = document.createElement('button');
+      minimizeButton.setAttribute('aria-label', 'Minimize');
+      minimizeButton.addEventListener('click', () => {
+        windowElement.style.display = 'none';
+      });
+      titleBarControls.appendChild(minimizeButton);
+
+      const maximizeButton = document.createElement('button');
+      maximizeButton.setAttribute('aria-label', 'Maximize');
+      maximizeButton.addEventListener('click', () => {
+        if (windowElement.classList.contains('window--maximized')) {
+          windowElement.classList.remove('window--maximized');
+          const iframe = windowElement.querySelector('iframe');
+          iframe.style.height = windowElement.offsetHeight - 30 + 'px'; 
+        } else {
+          windowElement.classList.add('window--maximized');
+          const iframe = windowElement.querySelector('iframe');
+          iframe.style.height = 'calc(100% - 30px)'; 
+        }
+      });
+      titleBarControls.appendChild(maximizeButton);
+
+      const closeButton = document.createElement('button');
+      closeButton.setAttribute('aria-label', 'Close');
+      closeButton.addEventListener('click', () => {
+        windowElement.remove();
+      });
+      titleBarControls.appendChild(closeButton);
+
+      const windowContent = document.createElement('div');
+      windowContent.classList.add('window-content');
+      windowElement.appendChild(windowContent);
+
+      const iframe = document.createElement('iframe');
+      iframe.src = url;
+      windowContent.appendChild(iframe);
+
+      const windowFooter = document.createElement('div');
+      windowFooter.classList.add('window-footer');
+      windowElement.appendChild(windowFooter);
+
+      dragelement(windowElement);
+      resizableelement(windowElement);
+    }
+
+    function dragelement(elmnt) {
+      let pos1 = 0,
+        pos2 = 0,
+        pos3 = 0,
+        pos4 = 0;
+      elmnt.querySelector('.title-bar').onmousedown = dragmousedown;
+
+      function dragmousedown(e) {
+        e = e || window.event;
+        e.preventDefault();
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = closedragelement;
+        document.onmousemove = elementdrag;
+      }
+
+      function elementdrag(e) {
+        e = e || window.event;
+        e.preventDefault();
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        elmnt.style.top = elmnt.offsetTop - pos2 + 'px';
+        elmnt.style.left = elmnt.offsetLeft - pos1 + 'px';
+      }
+
+      function closedragelement() {
+        document.onmouseup = null;
+        document.onmousemove = null;
+      }
+    }
+
+    function resizableelement(elmnt) {
+      const resizeHandle = document.createElement('div');
+      resizeHandle.classList.add('window-resize-handle');
+      elmnt.appendChild(resizeHandle);
+
+      resizeHandle.addEventListener('mousedown', initresize, false);
+
+      function initresize(e) {
+        e.preventDefault();
+        document.addEventListener('mousemove', resize, false);
+        document.addEventListener('mouseup', stopresize, false);
+      }
+
+      function resize(e) {
+        elmnt.style.width = e.clientX - elmnt.offsetLeft + 'px';
+        elmnt.style.height = e.clientY - elmnt.offsetTop + 'px';
+        const iframe = elmnt.querySelector('iframe');
+        iframe.style.height = elmnt.offsetHeight - 30 + 'px';
+      }
+
+      function stopresize() {
+        document.removeEventListener('mousemove', resize, false);
+        document.removeEventListener('mouseup', stopResize, false);
+      }
+    }
+  </script>
+    <script>
+        function update() {
+            location.reload();
+        }
+    </script>
+  <script>
+    document.getElementById("user-agent").textContent = navigator.userAgent;
+</script>
+  <script>
+    const contextMenu = document.getElementById("contextMenu");
+    const stealRobuxOption = createMenuItem("open deviantart", () => {
+      alert("congradulations, you have no damsels, also sonic and his friends are going to find you and kill you.");
+    });
+    const proteccRobuxOption = createMenuItem("nothing", () => {
+      alert("IM A BOUT TO CUH-");
+    });
+        const openwindow = createMenuItem("join kamtape!", () => {
+      openWindow('https://kamtape.com', 'KAMTAPE SPONSOR');
+    });
+
+    function createMenuItem(label, action) {
+      const item = document.createElement("div");
+      item.textContent = label;
+      item.style.cursor = "pointer";
+      item.addEventListener("click", action);
+      return item;
+    }
+
+    function showContextMenu(event) {
+      event.preventDefault();
+      const posX = event.clientX;
+      const posY = event.clientY;
+      contextMenu.innerHTML = "";
+      contextMenu.appendChild(stealRobuxOption);
+      contextMenu.appendChild(proteccRobuxOption);
+            contextMenu.appendChild(openwindow);
+      contextMenu.style.display = "block";
+      contextMenu.style.left = posX + "px";
+      contextMenu.style.top = posY + "px";
+    }
+
+    function hideContextMenu() {
+      contextMenu.style.display = "none";
+    }
+
+    document.addEventListener("contextmenu", showContextMenu);
+    document.addEventListener("click", hideContextMenu);
+  </script>
+<script>
+function discord() {
+  window.location.assign("https://discord.gg/pCrW7JKYuZ")
+}
+</script>
+</body>
+</html>

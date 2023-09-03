@@ -1,0 +1,33 @@
+     <button class="p-2" onclick="openWindow('apps/wip.html', 'About')">Start</button>
+      <hr>
+  <button onclick="update()">Sidows Update</button>
+    <button class="p-2" onclick="openWindow('https://kris477.github.io/KrisOS', 'KrisOS')">KrisOS</button>
+    <button class="p-2" onclick="openWindow('apps/wip.html', 'About')">About</button>
+    <button class="p-2" onclick="openWindow('https://random.dog', 'dawg')">dawg</button>
+    <button class="p-2" onclick="openWindow('apps/internet.html', 'Web Traveler')">Web Traveler</button>
+    <button class="p-2" onclick="openWindow('apps/waaif.html', 'Waaaif')">Why are all apps iframes?</button>
+    <button class="p-2" onclick="openWindow('https://sidows95.neocities.org', 'Sidows 95 Virtual Machine')">VM</button>
+    <button class="p-2" onclick="openWindow('https://www.stef.be/bassoontracker/', 'Basson Tracker')">Basson Tracker</button>
+    <button class="p-2" onclick="openWindow('https://explorer.emupedia.net/?url=https://youtube.com', 'YouTube')">YouTube</button>
+    <button class="p-2" onclick="openWindow('https://explorer.emupedia.net/?url=https://scratch.mit.edu', 'Scratch')">Scratch</button>
+    <button class="p-2" onclick="openWindow('https://explorer.emupedia.net/?url=https://liivid.co', 'LiiVid')">LiiVid</button>
+    <button class="p-2" onclick="openWindow('https://explorer.emupedia.net/?url=https://scratchspace.rf.gd', 'Scratchspace')">Scratchspace</button>
+    <button class="p-2" onclick="openWindow('https://windows96.net', 'Windows 96')">Windows 96</button>
+     <button class="p-2" onclick="openWindow('https://msgroom.windows96.net/', 'MSG Room')">Msg Room</button>
+     <button class="p-2" onclick="openWindow('https://explorer.emupedia.net/?url=https://google.com', 'Google Chrome')">Chrome</button>
+     <button class="p-2" onclick="openWindow('apps/ishowspeed.html', 'WNR')">WNR</button>
+     <button class="p-2" onclick="openWindow('https://icrazyblaze.github.io/Xash3D-Emscripten/xash-intro.html', 'Half-Life (idea by Toni Gamer123)')">Half-Life Uplink</button>
+    <button class="p-2" onclick="openWindow('https://windows85.neocities.org/', 'Windows 85')">Windows 85</button>
+        <button class="p-2" onclick="openWindow('https://theuselessweb.com', 'The Useless Web')">The Useless Web</button>
+        <button class="p-2" onclick="openWindow('https://ruffle.rs', 'Ruffle')">Ruffle</button>
+            <button class="p-2" onclick="openWindow('https://explorer.emupedia.net/?url=https://cyantube.bubbleapps.io', 'CyanTube - Create Your Video')">CyanTube</button>
+            <button class="p-2" onclick="openWindow('https://silastube.yooco.org', 'SilasTube - Popularize Yourself (Classic)')">SilasTube Classic</button>
+            <button class="p-2" onclick="openWindow('https://godztube.yooco.org', 'GodzTube')">GodzTube</button>
+<button class="p-2" onclick="openWindow('https://serve01.windows96.net/gameing/versions/v012_wgl/dl/', 'Gameing -- Version: v012_wgl -- By Windows 96')">Gameing</button>
+  <button class=".start-menu" onclick="openWindow('/apps/hampterdance.html', 'hampster dance')">hampster dance</button>
+    <button class=".start-menu" onclick="openWindow('/apps/ph.htm', 'why are you here')">Pointless os</button>
+                <button class="p-2" onclick="openWindow('https://bitview.net', 'BitView')">BitView</button>
+            <button class="p-2" onclick="openWindow('https://kamtape.com', 'KamTape')">KamTape</button>
+            <img src="file.png" class="bttnlook" onclick="openWindow('/', 'test')" width="40px">
+        <button class=".start-menu" onclick="discord()">dicosrd</button>
+        <button class="p-2" onclick="openWindow('apps/wip.html', 'About')">Start</button>
